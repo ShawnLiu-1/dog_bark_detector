@@ -18,10 +18,10 @@ class RecordPage extends StatefulWidget {
 }
 
 class _RecordPageState extends State<RecordPage> {
-  var date = ["10/22/2020"];
-  var time = ["2:08 pm"];
-  var lastDate = "10/21/2020";
-  var lastTime = "2:05 pm";
+  var pastDate = ["10/22/2020"];
+  var pastTime = ["2:08 pm"];
+  var date = "10/21/2020";
+  var time = "2:05 pm";
 
   @override
   Widget build(BuildContext context) {
@@ -57,26 +57,27 @@ class _RecordPageState extends State<RecordPage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Last Bark Date/Time' + lastDate + " / " + lastTime,
-            ),
-        ListView.builder(
-          itemCount: date.length,
-          itemBuilder: (context, index) {
-            return Column(
-              children: <Widget>[
-              Expanded(
-              flex: 6,
-              child: Card(
-                child: ListTile(
-                  title: Text(date[index]),
-                  subtitle: Text(time[index]),
-
-                ),
+            Expanded(flex:1,
+              child: Text(
+                'Last Bark Date/Time' + date + " / " + time,
               ),
             ),
-            ]);
-          }
+        Expanded(flex:4,
+          child: ListView.builder(
+            itemCount: pastDate.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: <Widget>[
+                Card(
+                  child: ListTile(
+                    title: Text(pastDate[index]),
+                    subtitle: Text(pastTime[index]),
+
+                  ),
+                ),
+              ]);
+            }
+          ),
         )],
         ),
       ),

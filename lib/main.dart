@@ -74,7 +74,7 @@ class AfterSplash extends StatelessWidget{
                         child: IconButton(
                           icon: Icon(Icons.edit),
                           onPressed: () {
-
+                            print(deviceController.text);
                             Navigator.push(
                               context,
                               MaterialPageRoute(

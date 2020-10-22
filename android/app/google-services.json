@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "828757455712",
+    "firebase_url": "https://dog-bark-detector.firebaseio.com",
+    "project_id": "dog-bark-detector",
+    "storage_bucket": "dog-bark-detector.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828757455712:android:7f132365da620db5956405",
+        "android_client_info": {
+          "package_name": "com.example.dog_bark_detector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828757455712-0t46a6taffqnqr1l65ihblbc7rsec2da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxj0ZxpZxQkuYaVkEcMJeW5-4F-0zJ4N0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828757455712-0t46a6taffqnqr1l65ihblbc7rsec2da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
