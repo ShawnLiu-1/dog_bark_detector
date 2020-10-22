@@ -1,3 +1,4 @@
+import "RecordPage.dart";
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 void main(){
@@ -45,23 +46,45 @@ class AfterSplash extends StatelessWidget{
       ),
       body: new Center(
         child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding (
                   padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-                  child: TextField(
+                  child: Row(
+                    children: [
+                      Expanded(flex:3,
+                        child: TextField(
 
-                    obscureText: false,
-                    //style: ,
-                    controller: deviceController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.phone_android),
-                      border: new OutlineInputBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
+                          obscureText: false,
+                          //style: ,
+                          controller: deviceController,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.phone_android),
+                            border: new OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(30.0),
+                            ),
+                            labelText: 'Device',
+                            labelStyle: TextStyle(fontSize: 25, fontFamily: 'Lato'
+                            ),
+                          ),
+                        ),
                       ),
-                      labelText: 'Device',
-                      labelStyle: TextStyle(fontSize: 25, fontFamily: 'Lato'
-                      ),
-                    ),
+                      Expanded(
+                        flex: 1,
+                        child: IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () {
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RecordPage(
+                                    title: deviceController.text,)),
+                            );
+
+                          },
+                        ),
+                      )],
                   )
               ),
               SizedBox(height: 25.0),
