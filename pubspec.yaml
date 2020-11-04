@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   splashscreen: ^1.2.0
-  cloud_firestore: ^0.12.9+5
+  firebase_database: ^4.2.0
 
 
 
