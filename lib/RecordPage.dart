@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Server.dart';
 class RecordPage extends StatefulWidget {
   RecordPage({Key key, this.title}) : super(key: key);
 
@@ -18,11 +19,24 @@ class RecordPage extends StatefulWidget {
 }
 
 class _RecordPageState extends State<RecordPage> {
-  var pastDate = ["10/22/2020"];
-  var pastTime = ["2:08 pm"];
-  var date = "10/21/2020";
-  var time = "2:05 pm";
 
+  Server server = Server();
+  var dateList = [];
+  var confidenceList = [];
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    server.getTimestamps(widget.title).then((value) {setState(() {
+      value.forEach((k, v) {
+        var date = DateTime.fromMillisecondsSinceEpoch(int.parse(k) * 1000);
+        print(date);
+        dateList.add(date.toString().substring(0, 16));
+        confidenceList.add(v.toString());
+      });
+    });}
+  );
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -37,41 +51,36 @@ class _RecordPageState extends State<RecordPage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      body: DecoratedBox(
+      position: DecorationPosition.background,
+      decoration: BoxDecoration(
+      image: DecorationImage(
+      image: AssetImage('asset/background.png'), fit: BoxFit.cover),
+      ),
+      child: new Center(
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(flex:1,
-              child: Text(
-                'Last Bark Date/Time' + date + " / " + time,
-              ),
-            ),
+              child: dateList.isNotEmpty
+                  ? Text(
+                'Last Bark Date/confidence ' +
+                    dateList[dateList.length - 1] +
+                    " / " +
+                    confidenceList[confidenceList.length - 1],
+              )
+                  : Text('No data')),
+
         Expanded(flex:4,
           child: ListView.builder(
-            itemCount: pastDate.length,
+            itemCount: dateList.length,
             itemBuilder: (context, index) {
               return Column(
                 children: <Widget>[
                 Card(
                   child: ListTile(
-                    title: Text(pastDate[index]),
-                    subtitle: Text(pastTime[index]),
+                    title: Text(dateList[index]),
+                    subtitle: Text(confidenceList[index]),
 
                   ),
                 ),
@@ -79,7 +88,7 @@ class _RecordPageState extends State<RecordPage> {
             }
           ),
         )],
-        ),
+        ),)
       ),
     );
   }

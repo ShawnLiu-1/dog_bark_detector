@@ -40,57 +40,64 @@ class AfterSplash extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Welcome In SplashScreen Package"),
-        automaticallyImplyLeading: false,
-      ),
-      body: new Center(
-        child:  Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding (
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-                  child: Row(
-                    children: [
-                      Expanded(flex:3,
-                        child: TextField(
+        appBar: new AppBar(
+          title: new Text("Dog Bark Detector"),
+          automaticallyImplyLeading: false,
+        ),
+        body: DecoratedBox(
+          position: DecorationPosition.background,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('asset/background.png'), fit: BoxFit.cover),
+          ),
+          child: new Center(
+              child:  Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding (
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+                        child: Row(
+                          children: [
+                            Expanded(flex:3,
+                              child: TextField(
 
-                          obscureText: false,
-                          //style: ,
-                          controller: deviceController,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.phone_android),
-                            border: new OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
+                                obscureText: false,
+                                //style: ,
+                                controller: deviceController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.phone_android),
+                                  border: new OutlineInputBorder(borderSide: BorderSide(color: Colors.brown),
+                                    borderRadius: new BorderRadius.circular(30.0),
+                                  ),
+
+                                  labelText: 'Device',
+                                  labelStyle: TextStyle(fontSize: 25, fontFamily: 'Lato', color: Colors.brown,
+                                  ),
+                                ),
+                              ),
                             ),
-                            labelText: 'Device',
-                            labelStyle: TextStyle(fontSize: 25, fontFamily: 'Lato'
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          icon: Icon(Icons.edit),
-                          onPressed: () {
-                            print(deviceController.text);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => RecordPage(
-                                    title: deviceController.text,)),
-                            );
+                            Expanded(
+                              flex: 1,
+                              child: IconButton(
+                                icon: Icon(Icons.forward),
+                                onPressed: () {
+                                  print(deviceController.text);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => RecordPage(
+                                          title: deviceController.text,)),
+                                  );
 
-                          },
-                        ),
-                      )],
-                  )
-              ),
-              SizedBox(height: 25.0),
-            ])
+                                },
+                              ),
+                            )],
+                        )
+                    ),
+                    SizedBox(height: 25.0),
+                  ])
 
-      ),
+          ),)
     );
   }
 }
