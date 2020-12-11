@@ -89,16 +89,19 @@ class AfterSplash extends StatelessWidget{
                               child: TextField(
 
                                 obscureText: false,
+                                style: TextStyle(fontSize: 30,fontFamily: 'Lato', color: Colors.brown),
                                 //style: ,
                                 controller: deviceController,
                                 decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.phone_android),
+                                  prefixIcon: Icon(Icons.phone_android,color: Colors.brown,),
                                   border: new OutlineInputBorder(borderSide: BorderSide(color: Colors.brown),
                                     borderRadius: new BorderRadius.circular(30.0),
                                   ),
-
+                                  focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.brown),
+                                    borderRadius: new BorderRadius.circular(30.0),
+                                  ),
                                   labelText: 'Device',
-                                  labelStyle: TextStyle(fontSize: 25, fontFamily: 'Lato', color: Colors.brown,
+                                  labelStyle: TextStyle(fontSize: 30, fontFamily: 'Lato', color: Colors.brown,
                                   ),
                                 ),
                               ),
