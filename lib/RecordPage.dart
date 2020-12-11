@@ -61,6 +61,7 @@ class _RecordPageState extends State<RecordPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: 30.0),
             Expanded(flex:1,
               child: dateList.isNotEmpty
                   ? Text(
@@ -68,6 +69,8 @@ class _RecordPageState extends State<RecordPage> {
                     dateList[dateList.length - 1] +
                     " / " +
                     confidenceList[confidenceList.length - 1],
+                style: TextStyle(fontSize: 30,fontFamily: 'Lato',color: Colors.brown,backgroundColor: Colors.white70,),
+                textAlign: TextAlign.center,
               )
                   : Text('No data')),
 
