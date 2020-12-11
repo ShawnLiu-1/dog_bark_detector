@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   splashscreen: ^1.2.0
-  firebase_database: ^4.2.0
+  firebase_database: ^4.4.0
   firebase_messaging: ^7.0.3
 
 
