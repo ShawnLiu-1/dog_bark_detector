@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
       seconds: 5,
       navigateAfterSeconds: new AfterSplash(),
       title: new Text(
-        'Welcome In SplashScreen',
+        'Welcome to Dog Bark Detector',
         style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
       ),
       image: new Image.asset('asset/Shiba_Smile.png'),
@@ -135,7 +135,7 @@ class AfterSplash extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: IconButton(
-                            icon: Icon(Icons.forward),
+                            icon: Icon(Icons.forward),iconSize: 60,
                             onPressed: () {
                               print(deviceController.text);
                               Navigator.push(
